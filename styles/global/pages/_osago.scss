@@ -1,0 +1,236 @@
+@use "../vars/fontscale";
+@use "../vars/fontfamilies";
+@use "../vars/colors";
+@use "../vars/breakpoints";
+@use "../vars/margins";
+@use "../vars/paddings";
+@use "../vars/borders";
+@use "../vars/shadows";
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+/* --- Hero Section --- */
+
+.osago-section-hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  h3 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .osago-img-wrapper {
+    max-width: 800px;
+    overflow: hidden;
+
+    @media screen and (min-width: breakpoints.$desktop) {
+      width: 55%;
+      height: 55%;
+    }
+
+    @media screen and (max-width: breakpoints.$desktop) and (min-width: breakpoints.$mobile) {
+      width: 75%;
+      height: 75%;
+    }
+
+    @media screen and (max-width: breakpoints.$mobile) {
+      width: 90%;
+      height: 90%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .osago-hero-features {
+    width: 100%;
+
+    padding: 0.5rem;
+    justify-content: center;
+    text-align: center;
+
+    h4 {
+      margin-bottom: 0.2rem;
+    }
+    p {
+      margin-top: 0;
+    }
+  }
+}
+
+/* --- Img Scroller Section --- */
+
+.osago-section-imgscroller {
+  h4 {
+    text-align: center;
+  }
+
+  .osago-scroller {
+    width: 100%;
+    max-width: breakpoints.$desktop;
+  
+    &[data-animated="true"] {
+      overflow: hidden;
+      -webkit-mask: linear-gradient(
+        90deg,
+        transparent,
+        white 20%,
+        white 80%,
+        transparent
+      );
+      mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    }
+  
+    &[data-animated="true"] .osago-scroller__inner {
+      width: max-content;
+      flex-wrap: nowrap;
+      animation: scroll var(--_animation-duration, 40s)
+        var(--_animation-direction, forwards) linear infinite;
+    }
+  
+    &[data-direction="right"] {
+      --_animation-direction: reverse;
+    }
+    
+    &[data-direction="left"] {
+      --_animation-direction: forwards;
+    }
+    
+    &[data-speed="fast"] {
+      --_animation-duration: 20s;
+    }
+    
+    &[data-speed="slow"] {
+      --_animation-duration: 60s;
+    }
+  
+    img {
+      max-width: 150px;
+      max-height: 150px;
+    }
+  
+    .osago-scroller__inner {
+      padding-block: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+  }
+}
+
+/* --- Widget Section --- */
+
+.osago-section-widget {
+  width: 100%;
+  max-width: breakpoints.$desktop;
+  margin: 4rem 0;
+  padding: 2rem 0 0 0;
+  border: borders.$thick;
+  border-radius: borders.$r-default;
+  overflow: hidden;
+}
+
+/* --- FAQ Section --- */
+
+.osago-section-faq {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  border: borders.$thick;
+  border-radius: borders.$r-default;
+  background-color: colors.$background-secondary;
+  box-shadow: shadows.$default;
+  
+  @media screen and (min-width: breakpoints.$tablet) {
+    padding: 2rem;
+  }
+
+  @media screen and (max-width: breakpoints.$tablet) {
+    padding: 1rem;
+  }
+
+  h3 {
+    text-align: center;
+    margin: 0.7rem 0;
+  }
+
+  h4 {
+    margin-bottom: 0.2rem;
+    text-align: left;
+  }
+
+  p,
+  ul {
+    margin-top: 0;
+  }
+
+  ul li {
+    margin: margins.$p-default
+  }
+
+  .accordion-body {
+    .accordion-container {
+      position: relative;
+      margin: 1rem 0;
+
+      &:not(:last-child) {
+        border-bottom: borders.$thin;
+      }
+
+      .accordion-label-container {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        cursor: pointer;
+
+        .accordion-label {
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      
+        .accordion-icon {
+          display: flex;
+          align-items: center;
+          margin-right: 1.2rem;
+          width: 10px;
+          font-size: 2rem;
+        }
+      }
+
+      .accordion-content {
+        position: relative;
+        max-height: 0;
+        text-align: justify;
+        width: auto;
+        overflow: hidden;
+        transition-timing-function: ease-in-out;
+        transition-duration: 0.4s;
+      }
+
+      &.accordion-active {
+          .accordion-content {
+            max-height: 600px;
+            @media screen and (max-width: breakpoints.$mobile) {
+              max-height: 760px;
+            }
+          }
+
+        .accordion-icon {
+          content: "-";
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+@use "global/vars/fontscale";
+@use "global/vars/fontfamilies";
+@use "global/vars/colors";
+@use "global/vars/breakpoints";
+@use "global/vars/margins";
+@use "global/vars/paddings";
+@use "global/vars/borders";
+@use "global/vars/shadows";
+
+@use "global/elements/header-nav";
+@use "global/elements/callbackform";
+@use "global/elements/footer-info";
+
+@use "global/pages/osago";
+@use "global/pages/formsentsuccess";
+@use "global/pages/ipoteka";
+@use "global/pages/kasko";
+@use "global/pages/mini-kasko";
+@use "global/pages/finance-products";
+@use "global/pages/confidentiality";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: fontfamilies.$body;
+  color: colors.$text-black;
+  list-style-position: inside;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: colors.$background;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  max-width: breakpoints.$desktop;
+  margin: auto;
+  margin-bottom: 5rem;
+  padding: margins.$body-outer;
+}
+
+section {
+  width: 100%;
+}
+
+iframe {
+  width: 1px;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: fontfamilies.$heading;
+  margin: margins.$h-default;
+}
+
+p {
+  margin: margins.$p-default;
+}
+
+.color-primary {
+  color: colors.$primary;
+}
+
+.color-secondary {
+  color: colors.$secondary;
+}
+
+.color-accent {
+  color: colors.$accent;
+}

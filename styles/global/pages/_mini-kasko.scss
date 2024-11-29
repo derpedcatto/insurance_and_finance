@@ -1,0 +1,14 @@
+@use "../vars/fontscale";
+@use "../vars/fontfamilies";
+@use "../vars/colors";
+@use "../vars/breakpoints";
+@use "../vars/margins";
+@use "../vars/paddings";
+@use "../vars/borders";
+@use "../vars/shadows";
+
+.minikasko-section-message {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}

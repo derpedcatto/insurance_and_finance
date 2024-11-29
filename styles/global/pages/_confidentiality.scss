@@ -1,0 +1,24 @@
+@use "../vars/fontscale";
+@use "../vars/fontfamilies";
+@use "../vars/colors";
+@use "../vars/breakpoints";
+@use "../vars/margins";
+@use "../vars/paddings";
+@use "../vars/borders";
+@use "../vars/shadows";
+
+.confidentiality-section-message {
+  max-width: breakpoints.$desktop;
+
+  h3 {
+    text-align: center;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+}

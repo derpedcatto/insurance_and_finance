@@ -1,0 +1,17 @@
+@use "../vars/fontscale";
+@use "../vars/fontfamilies";
+@use "../vars/colors";
+@use "../vars/breakpoints";
+@use "../vars/margins";
+@use "../vars/paddings";
+@use "../vars/borders";
+@use "../vars/shadows";
+
+.finprod-section-widget {
+  width: 100%;
+  max-width: breakpoints.$desktop;
+  margin: 4rem 0;
+  border: borders.$thin;
+  border-radius: borders.$r_default;
+  overflow: hidden;
+}

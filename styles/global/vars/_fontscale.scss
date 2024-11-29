@@ -1,0 +1,104 @@
+@use "../vars/breakpoints";
+
+$font-scale: 1.333;
+
+$p: 1.1rem;
+$h1: 4.2rem;
+$h2: calc($h1 / $font-scale + 0.4rem);
+$h3: calc($h2 / $font-scale);
+$h4: calc($h3 / $font-scale);
+$h5: calc($h4 / $font-scale);
+
+
+@media screen and (min-width: breakpoints.$desktop) {
+  p,
+  a,
+  ul li,
+  label,
+  input,
+  button {
+    font-size: $p;
+  }
+  
+  h1 {
+    font-size: $h1 - 1rem;
+  }
+  
+  h2 {
+    font-size: $h2;
+  }
+  
+  h3 {
+    font-size: $h3;
+  }
+  
+  h4 {
+    font-size: $h4;
+  }
+  
+  h5 {
+    font-size: $h5;
+  }
+}
+
+@media screen and (max-width: breakpoints.$desktop) and (min-width: breakpoints.$mobile) {
+  p,
+  a,
+  ul li,
+  label,
+  input,
+  button {
+    font-size: $p;
+  }
+
+  h1 {
+    font-size: $h1 - 1.5rem;
+  }
+
+  h2 {
+    font-size: $h2 - 0.5rem;
+  }
+  
+  h3 {
+    font-size: $h3 - 0.5rem;
+  }
+  
+  h4 {
+    font-size: $h4 - 0.5rem;
+  }
+  
+  h5 {
+    font-size: $h5 - 0.5rem;
+  }
+}
+
+@media screen and (max-width: breakpoints.$mobile) {
+  p,
+  a,
+  ul li,
+  label,
+  input,
+  button {
+    font-size: $p - 0.2rem;
+  }
+
+  h1 {
+    font-size: $h1 - 2.5rem;
+  }
+
+  h2 {
+    font-size: $h2 - 1rem;
+  }
+  
+  h3 {
+    font-size: $h3 - 1rem;
+  }
+  
+  h4 {
+    font-size: $h4 - 1rem;
+  }
+  
+  h5 {
+    font-size: $h5 - 1rem;
+  }
+}

@@ -1,0 +1,149 @@
+@use "../vars/fontscale";
+@use "../vars/fontfamilies";
+@use "../vars/colors";
+@use "../vars/breakpoints";
+@use "../vars/margins";
+@use "../vars/paddings";
+@use "../vars/borders";
+@use "../vars/shadows";
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(120%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(120%);
+  }
+}
+
+.contact-container {
+  .contact-btn-icon-container {
+    position: fixed;
+    width: 5rem;
+    height: 5rem;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: center;
+    background-color: colors.$accent;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: shadows.$call-btn;
+
+    .contact-btn-icon {
+      width: 3rem;
+      
+      // See HEX value in '_colors.scss' and convert to CSS filter manually (i'm potato)
+      // Current color: #e7ffed ($text-white)
+      filter: invert(89%) sepia(27%) saturate(200%) hue-rotate(74deg) brightness(107%) contrast(104%);
+    }
+  }
+
+  .contact-form {
+    display: flex;
+    opacity: 1;
+    transform: translateY(200%);
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background-color: colors.$background-secondary;
+    color: colors.$text-black;
+    border: borders.$thick;
+    border-radius: borders.$r-default;
+    box-shadow: shadows.$form;
+    animation: slide-up 500ms forwards;
+
+    @media only screen and (max-width: breakpoints.$mobile) {
+      width: 96%;
+      right: auto;
+      margin: margins.$body-outer;
+      bottom: 5px;
+
+      .field {
+        width: 100%;
+
+        .control {
+          width: 100%;
+
+          input {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    form {
+      width: 100%;
+    }
+
+    input {
+      border-radius: 6px;
+      padding: 3px;
+    }
+
+    button {
+      padding: 0.5rem;
+      font-weight: 600;
+      transition: 0.3s;
+      background-color: colors.$background-secondary;
+      color: colors.$text-black;
+      border: 2px solid colors.$primary;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: colors.$primary;
+        color: colors.$text-white;
+      }
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      margin-top: 1.4rem;
+      border-radius: borders.$r-default;
+    }
+
+    .form-heading-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .form-btn-close {
+        padding: 0.4rem 0.8rem;
+        font-weight: 900;
+      }
+    }
+
+    .label {
+      font-weight: 600;
+    }
+
+    .contact-form-footer {
+      text-align: center;
+    }
+  }
+
+  .contact-form-hidden {
+    display: none;
+  }
+
+  .slide-down-animation {
+    animation: slide-down 500ms forwards;
+  }
+}

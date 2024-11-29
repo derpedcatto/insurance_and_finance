@@ -1,0 +1,18 @@
+@use "../vars/fontscale";
+@use "../vars/fontfamilies";
+@use "../vars/colors";
+@use "../vars/breakpoints";
+@use "../vars/margins";
+@use "../vars/paddings";
+@use "../vars/borders";
+@use "../vars/shadows";
+
+.footer-info {
+  max-width: breakpoints.$desktop;
+  margin: 10rem auto 1rem auto;
+  text-align: center;
+
+  p {
+    font-size: 1rem;
+  }
+}

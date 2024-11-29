@@ -1,0 +1,76 @@
+@use "../vars/fontscale";
+@use "../vars/fontfamilies";
+@use "../vars/colors";
+@use "../vars/breakpoints";
+@use "../vars/margins";
+@use "../vars/paddings";
+@use "../vars/borders";
+@use "../vars/shadows";
+
+nav {
+  padding: margins.$body-outer;
+}
+
+.header-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    justify-content: center;
+    text-align: center;
+    margin: 1rem 2rem 0 2rem;
+  }
+
+  p {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    font-size: 1.7rem;
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    overflow: hidden;
+    border: borders.$thin;
+    border-radius: borders.$r-default;
+    background-color: colors.$background-secondary;
+    box-shadow: shadows.$default;
+
+    @media only screen and (max-width: breakpoints.$tablet) {
+      flex-direction: column;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    li {
+      &:not(:last-child) {
+        @media only screen and (min-width: breakpoints.$tablet) {
+          border-right: borders.$thin;
+        }
+        
+        @media only screen and (max-width: breakpoints.$tablet) {
+          border-bottom: borders.$thin;
+        }
+      }
+    
+      a {
+        display: block;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        transition: 0.3s;
+
+        &:hover {
+          color: colors.$text-white;
+          background-color: colors.$primary;
+        }
+      }
+    }
+
+    .header-nav-active {
+      color: colors.$text-white;
+      background-color: colors.$primary;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="yandex-verification" content="" />
+  <meta name="google-site-verification" content="" />
+  <title>Страхование и финансы</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" href="materials/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <nav class="header-nav">
+    <h1>Страхование и финансы</h1>
+    <p>+123456789</p>
+    <ul>
+      <li><a href="index.html">ОСАГО</a></li>
+      <li><a class="header-nav-active">Ипотека</a></li>
+      <li><a href="kasko.html">КАСКО</a></li>
+      <li><a href="mini-kasko.html">Мини-КАСКО</a></li>
+      <li><a href="finance-products.html">Финансовые продукты</a></li>
+    </ul>
+  </nav>
+  <main>
+    <!-- Widget -->
+    <section class="ipoteka-section-widget">
+      <iframe id="widget" height="800px" src="https://ipoteka.pampadu.ru/index.html"></iframe>
+    </section>
+  </main>
+
+  <!-- Floating Contact Button -->
+  <div class="contact-container">
+    <div class="contact-btn-icon-container" id="btn-open-form">
+      <img class="contact-btn-icon" src="materials/icons/callback.svg" alt="Заказать обратный звонок">
+    </div>
+    <div class="contact-form contact-form-hidden" id="form-container">
+      <div class="form-heading-container">
+        <label class="label">Обратная связь</label>
+        <button class="form-btn-close" id="form-btn-close">X</button>
+      </div>
+      <form id="formcallback" action="https://api.staticforms.xyz/submit" method="post">
+        <input type="hidden" name="accessKey" value="">
+        <input type="hidden" name="subject" value="Запрос обратного звонка">
+        <div class="field">
+          <label class="label" for="form-name">* Имя</label>
+          <div class="control">
+            <input class="input" type="text" name="$Имя" id="form-name" placeholder="" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="form-phone">* Номер телефона</label>
+          <div class="control">
+            <input class="input" type="tel" name="$Номер телефона" id="form-phone" placeholder="" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="form-email">E-mail</label>
+          <div class="control">
+            <input class="input" type="email" name="$Электронная почта" id="form-email"
+              placeholder="(необязательно)"></input>
+          </div>
+        </div>
+        <input type="hidden" name="redirectTo" value="/formsentsuccess">
+        <input type="text" name="honeypot" style="display: none;">
+        <button type="Submit" disabled>Отправить</button>
+      </form>
+      <small class="contact-form-footer">(После отправки формы вас<br />перенаправит на другую страницу.)</small>
+    </div>
+  </div>
+
+  <script src="scripts/callback_form.js"></script>
+</body>
+
+</html>
